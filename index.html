@@ -6,14 +6,17 @@
 <title>are you online</title>
 
 <style>
+* {
+  font-family: Tahoma, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: Tahoma, sans-serif;
-  background: #000;
+  background: black;
   overflow: hidden;
 }
 
-/* ---------- LOGIN ---------- */
+/* ---------------- LOGIN ---------------- */
 #login, #error {
   position: absolute;
   width: 100vw;
@@ -25,34 +28,36 @@ body {
 }
 
 .popup {
+  width: 300px;
   background: #ece9d8;
   border: 2px solid #000;
-  padding: 20px;
-  width: 300px;
+  padding: 18px;
   text-align: center;
+  box-shadow: 3px 3px 0 #000;
 }
 
 button {
-  margin: 10px;
-  padding: 5px 15px;
   font-family: Tahoma;
+  margin: 6px;
+  padding: 4px 12px;
+  cursor: pointer;
 }
 
-/* ---------- DESKTOP ---------- */
+/* ---------------- DESKTOP ---------------- */
 #desktop {
   display: none;
   width: 100vw;
   height: 100vh;
-  background: #000;
+  background: black;
   position: relative;
 }
 
-/* ICONS */
+/* ICON GRID (CLEAN XP STYLE) */
 .icon {
-  width: 80px;
+  width: 90px;
   text-align: center;
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
   position: absolute;
 }
@@ -60,28 +65,33 @@ button {
 .icon img {
   width: 48px;
   height: 48px;
+  display: block;
+  margin: 0 auto 4px auto;
 }
 
-/* WINDOWS */
+/* ---------------- WINDOWS ---------------- */
 .window {
   position: absolute;
-  width: 350px;
-  height: 250px;
+  width: 420px;
+  height: 280px;
   background: #ece9d8;
   border: 2px solid #0a246a;
+  box-shadow: 4px 4px 0 #000;
   display: none;
 }
 
 .titlebar {
+  height: 24px;
   background: linear-gradient(#0a246a, #3a6ea5);
   color: white;
-  padding: 4px;
   display: flex;
   justify-content: space-between;
-  cursor: move;
+  align-items: center;
+  padding: 0 6px;
+  font-size: 12px;
 }
 
-/* TASKBAR */
+/* ---------------- TASKBAR ---------------- */
 #taskbar {
   position: absolute;
   bottom: 0;
@@ -97,28 +107,23 @@ button {
 
 #startBtn {
   background: #1c4fbf;
-  padding: 5px 10px;
+  padding: 6px 12px;
   cursor: pointer;
 }
 
-/* START MENU */
+#clock {
+  padding-right: 10px;
+}
+
 #startMenu {
   position: absolute;
   bottom: 40px;
   left: 0;
-  width: 200px;
+  width: 220px;
   background: #ece9d8;
   border: 2px solid #0a246a;
   display: none;
-}
-
-#startMenu div {
   padding: 10px;
-}
-
-/* CLOCK */
-#clock {
-  padding-right: 10px;
 }
 </style>
 </head>
@@ -145,66 +150,77 @@ button {
 <!-- DESKTOP -->
 <div id="desktop">
 
-  <!-- ICONS -->
-  <div class="icon" style="top:50px;left:40px" onclick="openWin('music')">
-    <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png"/>
-    <div>music</div>
+  <!-- ICONS (CLEAN XP GRID) -->
+  <div class="icon" style="top:40px;left:40px" onclick="openWin('music')">
+    <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png">
+    music
   </div>
 
   <div class="icon" style="top:140px;left:40px" onclick="openWin('merch')">
-    <img src="https://cdn-icons-png.flaticon.com/512/107/107799.png"/>
-    <div>merchandise</div>
+    <img src="https://cdn-icons-png.flaticon.com/512/107/107799.png">
+    merchandise
   </div>
 
-  <div class="icon" style="top:230px;left:40px" onclick="openWin('videos')">
-    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"/>
-    <div>videos</div>
+  <div class="icon" style="top:240px;left:40px" onclick="openWin('videos')">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+    videos
   </div>
 
-  <div class="icon" style="top:320px;left:40px" onclick="openWin('photos')">
-    <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png"/>
-    <div>photos</div>
+  <div class="icon" style="top:340px;left:40px" onclick="openWin('photos')">
+    <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+    photos
   </div>
 
-  <div class="icon" style="top:410px;left:40px" onclick="openWin('notepad')">
-    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"/>
-    <div>notepad</div>
+  <div class="icon" style="top:440px;left:40px" onclick="openWin('notepad')">
+    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
+    notepad
+  </div>
+
+  <div class="icon" style="top:540px;left:40px" onclick="openWin('mail')">
+    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+    mail
   </div>
 
   <!-- WINDOWS -->
 
   <div id="win-music" class="window">
     <div class="titlebar">music <button onclick="closeWin('music')">x</button></div>
-    <iframe src="https://open.spotify.com/embed/artist/3MvnYhak5HxfnFfyl4pMH9" width="100%" height="220"></iframe>
+    <iframe src="https://open.spotify.com/embed/artist/3MvnYhak5HxfnFfyl4pMH9" width="100%" height="250"></iframe>
   </div>
 
   <div id="win-merch" class="window">
-    <div class="titlebar">merch <button onclick="closeWin('merch')">x</button></div>
-    <iframe src="https://payhip.com/JessHumphries" width="100%" height="220"></iframe>
+    <div class="titlebar">merchandise <button onclick="closeWin('merch')">x</button></div>
+    <iframe src="https://payhip.com/JessHumphries" width="100%" height="250"></iframe>
   </div>
 
   <div id="win-videos" class="window">
     <div class="titlebar">videos <button onclick="closeWin('videos')">x</button></div>
-    <iframe src="https://youtube.com/@jjesshumphries" width="100%" height="220"></iframe>
+    <iframe src="https://youtube.com/@jjesshumphries" width="100%" height="250"></iframe>
   </div>
 
   <div id="win-photos" class="window">
     <div class="titlebar">photos <button onclick="closeWin('photos')">x</button></div>
-    <iframe src="https://www.instagram.com/jess.humphries/" width="100%" height="220"></iframe>
+    <iframe src="https://instagram.com/jess.humphries" width="100%" height="250"></iframe>
   </div>
 
   <div id="win-notepad" class="window">
     <div class="titlebar">notepad <button onclick="closeWin('notepad')">x</button></div>
-    <textarea style="width:100%;height:220px;font-family:Tahoma;">
+    <textarea style="width:100%;height:250px;border:none;outline:none;font-family:Tahoma;">
 if you were born so blameless then why were you born again?
     </textarea>
+  </div>
+
+  <div id="win-mail" class="window">
+    <div class="titlebar">mail <button onclick="closeWin('mail')">x</button></div>
+    <iframe src="https://6is3da.subscribepage.io/" width="100%" height="250"></iframe>
   </div>
 
   <!-- TASKBAR -->
   <div id="taskbar">
     <div id="startBtn" onclick="toggleStart()">start</div>
+
     <div id="startMenu">
-      <div><b>Jess Humphries</b></div>
+      <b>Jess Humphries</b>
       <div>what did you expect</div>
     </div>
 
@@ -242,10 +258,10 @@ function toggleStart(){
   menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }
 
-/* clock (8:08 blinking colon) */
+/* CLOCK (8:08 blinking colon) */
 setInterval(()=>{
   let c = document.getElementById('clock');
-  c.innerHTML = (c.innerHTML.includes(':')) ? "8 08" : "8:08";
+  c.innerHTML = (c.innerHTML === "8:08") ? "8 08" : "8:08";
 },1000);
 </script>
 
