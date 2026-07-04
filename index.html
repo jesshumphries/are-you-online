@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jess XP Site</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="desktop">
+
+  <div class="icon" onclick="openWin('music')">🎵 music</div>
+  <div class="icon" onclick="openWin('merch')">📁 merch</div>
+  <div class="icon" onclick="openWin('photos')">🖼 photos</div>
+  <div class="icon" onclick="openWin('notes')">📝 notes</div>
+
+  <!-- MUSIC -->
+  <div id="win-music" class="window">
+    <div class="titlebar" onmousedown="startDrag(event, this.parentElement)">
+      music
+      <button onclick="closeWin('music')">✕</button>
+    </div>
+    <iframe src="https://open.spotify.com/embed/artist/3MvnYhak5HxfnFfyl4pMH9"></iframe>
+  </div>
+
+  <!-- MERCH -->
+  <div id="win-merch" class="window">
+    <div class="titlebar" onmousedown="startDrag(event, this.parentElement)">
+      merch
+      <button onclick="closeWin('merch')">✕</button>
+    </div>
+    <iframe src="https://payhip.com/JessHumphries"></iframe>
+  </div>
+
+  <!-- PHOTOS -->
+  <div id="win-photos" class="window">
+    <div class="titlebar" onmousedown="startDrag(event, this.parentElement)">
+      photos
+      <button onclick="closeWin('photos')">✕</button>
+    </div>
+    <div class="content">
+      press shots / music videos / live / behind the scenes
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div id="win-notes" class="window">
+    <div class="titlebar" onmousedown="startDrag(event, this.parentElement)">
+      notes
+      <button onclick="closeWin('notes')">✕</button>
+    </div>
+    <textarea>you were born to be brutal and i was first in line</textarea>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
